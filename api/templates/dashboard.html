@@ -1,0 +1,132 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYIPLAB – Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+
+
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="nav_container">
+            <div class="logo">PRIMEVEST CAPITAL</div>
+            <div class="nav-links" id="navLinks">
+                
+                <a href="{% url 'deposit' %}">Deposit</a>
+                <a href="{% url 'plan' %}">Plan</a>
+                <a href="{% url 'index' %}">Logout</a>
+            </div>
+            <h3 class="menuToggle" id="menuToggle"><i class="fa-solid fa-list"></i></h3>
+        </div>
+    </div>
+
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="container hero-content">
+            <h1>{{ account.user.username }} Welcome to Your Dashboard</h1>
+            <div class="breadcrumb">Home – Dashboard</div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <section>
+        <div class="container stats">
+            <div class="stat-card">
+                <div>
+                    <h4>Profit balance</h4>
+                    <p>${{ account.balance }}</p>
+                </div>
+                <!-- <i class="fa-solid fa-dollar-sign"></i> -->
+            </div>
+
+            <!-- <div class="stat-card">
+      <div>
+        <h4>Interest Wallet Balance</h4>
+        <p>$1,105</p>
+      </div>
+      <i class="fa-solid fa-wallet"></i>
+    </div> -->
+
+            <div class="stat-card">
+                <div>
+                    <h4>Total Invest</h4>
+                    <p>${{ account.total_invested }}</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div>
+                    <h4>Total Withdraw</h4>
+                    <p>${{ account.total_withdrawal }}</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div>
+                    <h4>Referral Earnings</h4>
+                    <p>${{ account.referral_earnings }}</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>© 2026 PRIMEVEST CAPITAL. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuToggle");
+        const nav = document.getElementById("navLinks");
+
+        // Only run if both exist
+        if (menuBtn && nav) {
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            function setup() {
+                if (isMobile()) {
+                    nav.style.display = "none";
+                    menuBtn.style.display = "flex";
+                    menuBtn.textContent = "☰";
+                } else {
+                    nav.style.display = "flex";   // desktop shows links
+                    menuBtn.style.display = "none";
+                }
+            }
+
+            setup();
+            window.addEventListener("resize", setup);
+
+            menuBtn.addEventListener("click", () => {
+                const open = nav.style.display === "flex" || nav.style.display === "block";
+                nav.style.display = open ? "none" : "block";
+                menuBtn.textContent = open ? "☰" : "✖";
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
+{% endblock %}

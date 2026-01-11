@@ -1,0 +1,185 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HYIP Investment Platform</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav_container">
+            <div class="logo">PRIMEVEST CAPITAL</div>
+            <div class="nav-links" id="navLinks">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'plan' %}">Plan</a>
+            </div>
+            <h3 class="menuToggle" id="menuToggle"><i class="fa-solid fa-list"></i></h3>
+        </div>
+    </div>
+    <header>
+
+        <div class="container">
+            <div class="header-content">
+                <h1>Invest for Future in <span>Stable Platform</span></h1>
+                <p>Secure crypto investment platform with high returns and instant withdrawals.</p>
+                <a href="{% url 'signup' %}" class="btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Investment <span>Plans</span></h2>
+            </div>
+
+            <div class="plans">
+                <div class="plan">
+                    <h3>Starter</h3>
+                    <p>Daily Profit</p>
+                    <div class="price">5%</div>
+                    <p>Min: $50</p>
+                    <p>Max: $500</p>
+                    <a href="https://t.me/chris886f" class="btn">Invest</a>
+                </div>
+
+                <div class="plan">
+                    <h3>Silver</h3>
+                    <p>Daily Profit</p>
+                    <div class="price">8%</div>
+                    <p>Min: $500</p>
+                    <p>Max: $2000</p>
+                    <a href="https://t.me/chris886f" class="btn">Invest</a>
+                </div>
+
+                <div class="plan">
+                    <h3>Gold</h3>
+                    <p>Daily Profit</p>
+                    <div class="price">12%</div>
+                    <p>Min: $2000</p>
+                    <p>Max: $10000</p>
+                    <a href="https://t.me/chris886f" class="btn">Invest</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose <span>Us</span></h2>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png">
+                    <h4>Secure Platform</h4>
+                </div>
+
+                <div class="feature">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png">
+                    <h4>Fast Withdrawals</h4>
+                </div>
+
+                <div class="feature">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
+                    <h4>24/7 Support</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Profit <span>Calculator</span></h2>
+            </div>
+
+            <div class="calculator">
+                <input type="number" placeholder="Enter Amount ($)">
+                <input type="number" placeholder="Daily Profit (%)">
+                <a href="#" class="btn">Calculate</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Expert <span>Team</span></h2>
+            </div>
+
+            <div class="team">
+                <div class="member" id="member">
+                    <img src="{% static 'images/admin_1.jpeg' %}">
+                    <h4>Christopher</h4>
+                    <p>CEO</p>
+                </div>
+
+                <div class="member">
+                    <img src="{% static 'images/admin_2.jpeg' %}">
+                    <h4>Sarah Lee</h4>
+                    <p>Manager</p>
+                </div>
+
+                <div class="member">
+                    <img src="{% static 'images/admin_5.jpeg' %}">
+                    <h4>Michael Stone</h4>
+                    <p>Analyst</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 PRIMEVEST CAPITAL. All Rights Reserved.</p>
+    </footer>
+
+</body>
+<script>
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("navLinks");
+
+    // Only run if both exist
+    if (menuBtn && nav) {
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function setup() {
+        if (isMobile()) {
+          nav.style.display = "none";
+          menuBtn.style.display = "flex";
+          menuBtn.textContent = "☰";
+        } else {
+          nav.style.display = "flex";   // desktop shows links
+          menuBtn.style.display = "none";
+        }
+      }
+
+      setup();
+      window.addEventListener("resize", setup);
+
+      menuBtn.addEventListener("click", () => {
+        const open = nav.style.display === "flex" || nav.style.display === "block";
+        nav.style.display = open ? "none" : "block";
+        menuBtn.textContent = open ? "☰" : "✖";
+      });
+    }
+  </script>
+
+
+</html>
+{% endblock %}
