@@ -1,0 +1,225 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deposit Bitcoin</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .deposit-card {
+      background: #121212;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .deposit-card h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .deposit-card p.subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .submit-btn a {
+
+      text-decoration: none;
+      color: black;
+
+    }
+
+    .qr-box {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .qr-box img {
+      width: 180px;
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .qr-box span {
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .wallet-box {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .wallet-box label {
+      font-size: 0.85rem;
+      color: #aaa;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .wallet-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wallet-address {
+      flex: 1;
+      background: #000;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.85rem;
+      word-break: break-all;
+      border: 1px solid #333;
+    }
+
+    .copy-btn {
+      background: #f7931a;
+      border: none;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #ffab3d;
+    }
+
+    .instructions {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .instructions h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .instructions ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .instructions ul li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f7931a, #ffb347);
+      color: #000;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(247, 147, 26, 0.4);
+    }
+
+    @media (max-width: 480px) {
+      .deposit-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="deposit-card">
+    <h1>Deposit Bitcoin</h1>
+    <p class="subtitle">Scan the QR code or copy the wallet address below</p>
+
+    <!-- QR Code Section -->
+    <div class="qr-box">
+      <!-- Replace src with your real QR code image -->
+      <img src="{% static 'images/QR code.jpeg' %}" alt="Bitcoin QR Code" />
+      <span>Bitcoin (BTC) Wallet QR Code</span>
+    </div>
+
+    <!-- Wallet Address -->
+    <div class="wallet-box">
+      <label>Bitcoin Wallet Address</label>
+      <div class="wallet-row">
+        <div class="wallet-address" id="walletAddress">
+          bc1qel7ectve5d7prvras290x0pwx99n3pq9rsvxlr
+        </div>
+        <button class="copy-btn" onclick="copyAddress()">Copy</button>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h3>Deposit Instructions</h3>
+      <ul>
+        <li>• Send only <strong>Bitcoin (BTC)</strong> to this address.</li>
+        <li>• Minimum deposit applies.</li>
+        <li>• After payment, take a screenshot of the transaction.</li>
+        <li>• Click <strong>Submit Payment Proof</strong> after sending.</li>
+      </ul>
+    </div>
+
+    <!-- Submit Proof Button -->
+    <button class="submit-btn"><a href="https://t.me/chris886f" target="_blank">Submit Payment Proof</a></button>
+  </div>
+
+  <script>
+    function copyAddress() {
+      const text = document.getElementById("walletAddress").innerText;
+      navigator.clipboard.writeText(text);
+      alert("Wallet address copied!");
+    }
+  </script>
+
+</body>
+
+</html>
+
+{% endblock %}

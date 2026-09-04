@@ -1,0 +1,192 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HYIPLAB – About Us</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="navbar">
+    <div class="nav_container">
+      <div class="logo">PRIMEVEST CAPITAL</div>
+      <div class="nav-links" id="navLinks">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'plan' %}">Plan</a>
+      </div>
+      <h3 class="menuToggle" id="menuToggle"><i class="fa-solid fa-list"></i></h3>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container hero-content">
+      <h1>About Us</h1>
+      <div class="breadcrumb">Home – About</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>How <span>PRIMEVEST CAPITAL</span> Works</h2>
+        <p>We utilize your money wisely and generate profit automatically.</p>
+      </div>
+
+      <div class="steps_container">
+        <div class="about_step">
+          <i class="fa-solid fa-user-plus"></i>
+          <h4>Create Account</h4>
+        </div>
+        <div class="about_step">
+          <i class="fa-solid fa-chart-line"></i>
+          <h4>Invest To Plan</h4>
+        </div>
+        <div class="about_step">
+          <i class="fa-solid fa-wallet"></i>
+          <h4>Get Profit</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="about_container">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80">
+      <div class="about_text">
+        <h2>About <span style="color:var(--gold)">Us</span></h2>
+        <p>
+          We are an international financial company engaged in investment activities
+          related to trading on financial markets and cryptocurrency exchanges.
+        </p>
+        <p>
+          Our goal is to provide our investors with a reliable source of high income
+          while minimizing risks through advanced strategies.
+        </p>
+        <a href="https://t.me/+ZSqgqaVCXIUxYjg0" class="more-btn">More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Expert <span>Team Members</span></h2>
+      </div>
+
+      <div class="team">
+        <div class="member">
+          <img src="{% static 'images/admin_1.jpeg' %}">
+          <h4>Fahad Bin Faiz</h4>
+          <p>CEO</p>
+        </div>
+        <div class="member">
+          <img src="{% static 'images/admin_6.jpeg' %}">
+          <h4>Daniel K</h4>
+          <p>CTO</p>
+        </div>
+        <div class="member">
+          <img src="{% static 'images/admin_7.jpeg' %}">
+          <h4>Lew Son</h4>
+          <p>Marketing Head</p>
+        </div>
+        <div class="member">
+          <img src="https://randomuser.me/api/portraits/men/78.jpg">
+          <h4>Zend Z Joe</h4>
+          <p>Designer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked <span>Questions</span></h2>
+      </div>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h4>When can I deposit/withdraw?</h4>
+          <p>Deposit and withdrawal are available anytime from your dashboard.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I check my balance?</h4>
+          <p>You can see your balance instantly in your dashboard.</p>
+        </div>
+        <div class="faq-item">
+          <h4>I forgot my password, what should I do?</h4>
+          <p>Use the password recovery option on the login page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h3>Get Started Today With Us</h3>
+        <p>Fast, secure, and profitable investment platform.</p>
+        <a href="{% url 'signup' %}" class="more-btn">Join Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 PRIMEVEST CAPITAL. All Rights Reserved.</p>
+  </footer>
+
+  {% endblock %}
+
+  <script>
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("navLinks");
+
+    // Only run if both exist
+    if (menuBtn && nav) {
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function setup() {
+        if (isMobile()) {
+          nav.style.display = "none";
+          menuBtn.style.display = "flex";
+          menuBtn.textContent = "☰";
+        } else {
+          nav.style.display = "flex";   // desktop shows links
+          menuBtn.style.display = "none";
+        }
+      }
+
+      setup();
+      window.addEventListener("resize", setup);
+
+      menuBtn.addEventListener("click", () => {
+        const open = nav.style.display === "flex" || nav.style.display === "block";
+        nav.style.display = open ? "none" : "block";
+        menuBtn.textContent = open ? "☰" : "✖";
+      });
+    }
+  </script>
+</body>
+
+</html>

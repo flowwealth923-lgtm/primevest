@@ -1,0 +1,192 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HYIPLAB – Investment Plans</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav_container">
+      <div class="logo">PRIMEVEST CAPITAL</div>
+      <div class="nav-links" id="navLinks">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'plan' %}">Plan</a>
+      </div>
+      <h3 class="menuToggle" id="menuToggle"><i class="fa-solid fa-list"></i></h3>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container hero-content">
+      <h1>All Plans</h1>
+      <div class="breadcrumb">Home – Plan</div>
+    </div>
+  </div>
+
+  <!-- PLANS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Investment <span>Plans</span></h2>
+        <p>To make a solid investment, you have to know where you are investing.</p>
+      </div>
+
+      <div class="plans">
+
+        <div class="plan-card">
+          <h3>Slivesto</h3>
+          <ul>
+            <li>Return <span>6%</span></li>
+            <li>Every Week</li>
+            <li>For 5 Week</li>
+            <li>Total 30% + <span>Capital</span></li>
+          </ul>
+          <div class="price">$200</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Life Time</h3>
+          <ul>
+            <li>Return <span>0.2%</span></li>
+            <li>Every Day</li>
+            <li>For Lifetime</li>
+            <li>Lifetime Earning</li>
+          </ul>
+          <div class="price">$100 – $200</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Black Horse</h3>
+          <ul>
+            <li>Return <span>5%</span></li>
+            <li>Every Week</li>
+            <li>For 40 Week</li>
+            <li>Total 200%</li>
+          </ul>
+          <div class="price">$500 – $5000</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Silver</h3>
+          <ul>
+            <li>Return <span>5%</span></li>
+            <li>Every Day</li>
+            <li>For 25 Day</li>
+            <li>Total 125%</li>
+          </ul>
+          <div class="price">$500</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Elephant</h3>
+          <ul>
+            <li>Return <span>1.1 USD</span></li>
+            <li>Every Day</li>
+            <li>For 50 Day</li>
+            <li>Total 55 USD + <span>Capital</span></li>
+          </ul>
+          <div class="price">$500 – $700</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Cobra</h3>
+          <ul>
+            <li>Return <span>10 USD</span></li>
+            <li>Every Hour</li>
+            <li>For 150 Hour</li>
+            <li>Total 1500 USD + <span>Capital</span></li>
+          </ul>
+          <div class="price">$1000</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Lion</h3>
+          <ul>
+            <li>Return <span>0.2%</span></li>
+            <li>Every Day</li>
+            <li>For Lifetime</li>
+            <li>Lifetime Earning</li>
+          </ul>
+          <div class="price">$100 – $500</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Tiger</h3>
+          <ul>
+            <li>Return <span>0.2%</span></li>
+            <li>Every Day</li>
+            <li>For Lifetime</li>
+            <li>Lifetime Earning</li>
+          </ul>
+          <div class="price">$100 – $500</div>
+          <a href="https://t.me/chris886f" class="invest-btn">Invest Now</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 PRIMEVEST CAPITAL. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("navLinks");
+
+    // Only run if both exist
+    if (menuBtn && nav) {
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function setup() {
+        if (isMobile()) {
+          nav.style.display = "none";
+          menuBtn.style.display = "flex";
+          menuBtn.textContent = "☰";
+        } else {
+          nav.style.display = "flex";   // desktop shows links
+          menuBtn.style.display = "none";
+        }
+      }
+
+      setup();
+      window.addEventListener("resize", setup);
+
+      menuBtn.addEventListener("click", () => {
+        const open = nav.style.display === "flex" || nav.style.display === "block";
+        nav.style.display = open ? "none" : "block";
+        menuBtn.textContent = open ? "☰" : "✖";
+      });
+    }
+  </script>
+
+</body>
+
+</html>
+{% endblock %}

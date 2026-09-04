@@ -1,0 +1,235 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | HYIPLAB</title>
+
+  <!-- Google Font (similar clean modern look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #0b0d10;
+      --bg-card: #12141b;
+      --gold: #d4af37;
+      --gold-dark: #b8962e;
+      --text-light: #f1f1f1;
+      --text-muted: #9da1aa;
+      --border-dark: #1f2229;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1a1d24, var(--bg-main));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    .signup-wrapper {
+      width: 100%;
+      max-width: 460px;
+      padding: 20px;
+    }
+
+    .signup-card {
+      background: linear-gradient(180deg, #151824, var(--bg-card));
+      border-radius: 16px;
+      padding: 34px 30px;
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.75);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .logo h2 {
+      margin: 0;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .signup-card h3 {
+      text-align: center;
+      margin: 18px 0 6px;
+      font-weight: 500;
+    }
+
+    .signup-card p {
+      text-align: center;
+      margin: 0 0 26px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-dark);
+      background: #0f1218;
+      color: var(--text-light);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: var(--gold);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .terms {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 18px 0 24px;
+    }
+
+    .terms input {
+      accent-color: var(--gold);
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #111;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.35);
+    }
+
+    .footer-text {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-text a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-wrapper">
+    <div class="signup-card">
+
+      <div class="logo">
+        <h2>PRIMEVEST CAPITAL</h2>
+        <span>Complete PRIMEVEST CAPITAL Investment System</span>
+      </div>
+
+      <h3>Create Your Account</h3>
+      <p>Join us and start growing your investment</p>
+
+      <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John" name="first_name" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe" name="last_name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="example@email.com" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" placeholder="username" name="username" />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="********" name="password" />
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" placeholder="********" name="password2" />
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" />
+          <span>I agree to the Terms & Conditions</span>
+        </div>
+
+        <button class="signup-btn" type="submit">Create Account</button>
+      </form>
+
+      <div class="footer-text">
+        Already have an account? <a href="{% url 'login' %}"    >Login</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+{% endblock %}
