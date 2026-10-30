@@ -32,7 +32,7 @@ RENDER_EXTERNAL_HOSTNAME = os.environ.get(
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-    
+
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -120,9 +120,12 @@ USE_TZ = True
 
 # STATIC FILES
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
