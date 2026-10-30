@@ -1,0 +1,421 @@
+:root{
+  --bg:#0b0b0b;
+  --card:#121212;
+  --gold:#d4af37;
+  --gold-soft:#b8962e;
+  --text:#f5f5f5;
+  --muted:#b3b3b3;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+.nav_container{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+.menuToggle{
+  display:none;
+}
+
+.logo{
+  font-size:1.4rem;
+  font-weight:700;
+  color: #b8962e;
+}
+
+.nav-links{
+  gap: 30px;
+  display: flex;
+}
+
+.steps_container{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.about_container{
+  display: flex;
+  padding: 0 50px;
+  justify-content: space-between;
+  
+}
+
+.about_container img{
+  width: 45%;
+  
+}
+
+.about_text{
+  width: 45%;
+  padding-left: 30px;
+}
+
+.about_text p{
+  margin-bottom: 20px;
+}
+
+.about_step i{
+  font-size: 30px;
+  color: var(--gold);
+
+}
+
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ================= HEADER / HERO ================= */
+header,
+.hero{
+  background:url("https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1600&q=80")
+  center/cover no-repeat;
+  padding:100px 0;
+  position:relative;
+}
+
+header::after,
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.7);
+}
+
+.header-content,
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:600px;
+}
+
+header h1,
+.hero h1{
+  font-size:clamp(2rem,5vw,3.2rem);
+  margin-bottom:15px;
+}
+
+header h1 span{
+  color:var(--gold);
+}
+
+header p{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+.btn,
+.invest-btn,
+.more-btn{
+  display:inline-block;
+  padding:12px 30px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+  font-weight:600;
+}
+
+/* ================= SECTION ================= */
+section{
+  padding:80px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:clamp(1.6rem,4vw,2.4rem);
+}
+
+.section-title span{
+  color:var(--gold);
+}
+
+.section-title p{
+  color:var(--muted);
+  max-width:700px;
+  margin:15px auto 0;
+}
+
+/* ================= PLANS ================= */
+.plans{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.plan,
+.plan-card{
+  background:var(--card);
+  border-radius:15px;
+  padding:30px;
+  text-align:center;
+  border:1px solid rgba(212,175,55,.2);
+}
+
+.plan h3,
+.plan-card h3{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.plan p{
+  color:var(--muted);
+  margin:10px 0;
+}
+
+.price{
+  font-size:1.5rem;
+  margin:15px 0;
+}
+
+.plan-card ul{
+  list-style:none;
+  margin-bottom:20px;
+}
+
+.plan-card ul li{
+  font-size:14px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.plan-card ul li span{
+  color:var(--gold);
+}
+
+/* ================= FEATURES ================= */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.feature{
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.feature img{
+  width:50px;
+  margin:auto;
+  margin-bottom:15px;
+}
+
+/* ================= CALCULATOR ================= */
+.calculator{
+  background:var(--card);
+  padding:40px;
+  border-radius:15px;
+  max-width:600px;
+  margin:auto;
+}
+
+.calculator input{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+/* ================= STATS ================= */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:50px;
+}
+
+.stat-card{
+  background:var(--gold);
+  color:#000;
+  border-radius:14px;
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.stat-card h4{
+  font-size:14px;
+}
+
+.stat-card p{
+  font-size:22px;
+  font-weight:700;
+}
+
+/* ================= TABLE ================= */
+.table-wrap{
+  background:var(--card);
+  border-radius:15px;
+  padding:20px;
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+}
+
+th,td{
+  padding:14px;
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+th{
+  color:var(--gold);
+}
+
+.amount{
+  color:#1ecf65;
+}
+
+.badge{
+  background:var(--gold);
+  color:#000;
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:11px;
+}
+
+/* ================= TEAM ================= */
+.team{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.member{
+  background:var(--card);
+  border-radius:15px;
+  text-align:center;
+  padding:20px;
+}
+
+.member img{
+  border-radius:50%;
+  width:90px;
+  margin:auto;
+  margin-bottom:10px;
+}
+
+
+
+/* ================= FAQ ================= */
+.faq{
+  max-width:900px;
+  margin:auto;
+}
+
+.faq-item{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.faq-item h4{
+  color:var(--gold);
+  font-size:15px;
+}
+
+.faq-item p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:10px;
+}
+
+/* ================= CTA ================= */
+.cta{
+  background:linear-gradient(180deg,#161616,#0b0b0b);
+  border-radius:20px;
+  padding:50px 30px;
+  text-align:center;
+}
+
+.cta h3{
+  font-size:28px;
+}
+
+.cta p{
+  color:var(--muted);
+  margin:15px 0 25px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#050505;
+  padding:50px 0;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:600px){
+  header,
+  .hero{
+    padding:70px 0;
+  }
+  section{
+    padding:60px 0;
+  }
+}
+
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+  }
+  .menuToggle{
+    display:block;
+    cursor:pointer;
+  }
+
+  .about_container{
+    flex-direction: column;
+    
+  }
+
+  .about_container img{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about_text{
+    width: 100%;
+    padding-left: 0;
+  }
+}
